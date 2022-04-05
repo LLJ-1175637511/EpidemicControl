@@ -10,5 +10,6 @@
     <color name="colorAccent">#FF9800</color>
 
     <color name="qq_blue">#00acff</color>
+    <color name="common_bg">#E4E1E1</color>
 
 </resources>

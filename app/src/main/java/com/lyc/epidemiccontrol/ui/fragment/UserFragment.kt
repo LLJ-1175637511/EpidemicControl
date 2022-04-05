@@ -13,6 +13,11 @@ class UserFragment : BaseFragment<FragmentUserBinding>() {
 
     private val vm by activityViewModels<MainVM>()
 
+    override fun initCreate() {
+        vm.barColor.postValue(false)
+        super.initCreate()
+    }
+
     override fun initCreateView() {
         super.initCreateView()
         vm.userInfo.observe(this){
