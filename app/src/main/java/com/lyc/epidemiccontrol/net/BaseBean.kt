@@ -8,5 +8,5 @@ import com.google.gson.JsonElement
 data class BaseBean(
     val code: Int,
     val message: String,
-    val data: JsonElement
+    val data: JsonElement?
 )

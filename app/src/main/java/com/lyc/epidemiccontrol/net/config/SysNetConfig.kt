@@ -1,6 +1,10 @@
 package com.lyc.epidemiccontrol.net.config
 
 import android.text.Editable
+import com.lyc.epidemiccontrol.utils.Const
+import com.lyc.epidemiccontrol.utils.ECLib
+import okhttp3.MediaType
+import okhttp3.RequestBody
 
 object SysNetConfig {
 
@@ -11,6 +15,10 @@ object SysNetConfig {
     const val Address = "Address"
     const val Telephone = "Telephone"
     const val Eamil = "Eamil"
+    const val CreatDate = "CreatDate"
+    const val IdentityNum = "IdentityNum"
+    const val AppintDate = "AppintDate"
+    const val AppintSite = "AppintSite"
 
     const val MULTIPART_TEXT = "text/plain"
     const val MULTIPART_FILE = "multipart/form-data"
@@ -37,5 +45,28 @@ object SysNetConfig {
         Address to address,
         Gender to sex,
     )
+
+    fun buildAppointNewMap(
+        creatDate: String,
+        telephone: String,
+        appintDate: String,
+        appintSite: String
+    ) = mapOf(
+        UserNum to getUserId(),
+        CreatDate to creatDate,
+        Telephone to telephone,
+        AppintDate to appintDate,
+        AppintSite to appintSite,
+    )
+
+
+    fun getUserId() = ECLib.getSP(Const.SPUser).getString(Const.SPUserID,"").toString()
+
+    fun getAuth() = "Bearer ${
+        ECLib.getSP(Const.SPNet).getString(
+            Const.SPNetToken, ""
+        ).toString()
+    }"
+
 
 }

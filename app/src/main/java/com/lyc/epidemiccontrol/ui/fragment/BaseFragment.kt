@@ -1,6 +1,8 @@
 package com.lyc.epidemiccontrol.ui.fragment
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,21 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
         mDataBinding.lifecycleOwner = this
         initCreateView()
         return mDataBinding.root
+    }
+
+    fun <T : Activity> startCommonActivity(activity: Class<T>) {
+        startActivity(Intent(requireContext(), activity))
+    }
+
+    inline fun <reified T : Activity> startCommonActivity() {
+        startCommonActivity(T::class.java)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (this::mDataBinding.isInitialized){
+            mDataBinding.unbind()
+        }
     }
 
     fun hideKeyBoard() {

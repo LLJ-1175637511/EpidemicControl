@@ -26,4 +26,6 @@ object ECLib {
     fun getSP(key: String): SharedPreferences =
         context.getSharedPreferences(key, Context.MODE_PRIVATE)
 
+    const val AUTH = """Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyTnVtIjoiYWRtaW4iLCJuYmYiOjE2NDg5NzEyMDUsImV4cCI6MTY0ODk3NDgwNSwiaXNzIjoiYXV0aG9yIiwiYXVkIjoiYWRtaW4ifQ.mSM-Sqcu3QSg9AgpoZgdX83lRxnxKWUjarHpWWbGWYw"""
+
 }

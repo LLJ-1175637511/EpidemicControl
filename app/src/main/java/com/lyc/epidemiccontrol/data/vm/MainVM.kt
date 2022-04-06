@@ -8,6 +8,5 @@ class MainVM:ViewModel() {
 
     val userInfo = MutableLiveData<LoginBean>()
 
-    val barColor = MutableLiveData<Boolean>(false)
 
 }

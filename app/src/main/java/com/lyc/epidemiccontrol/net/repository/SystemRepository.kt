@@ -8,4 +8,6 @@ object SystemRepository {
 
     suspend fun registerRequest(map: Map<String, String>) = SystemNetWork.register(map)
 
+    suspend fun appointNewRequest(map: Map<String, String>, idCard: Long) = SystemNetWork.appointNew(map,idCard)
+
 }

@@ -3,8 +3,12 @@ package com.lyc.epidemiccontrol.ui.activity
 import androidx.lifecycle.lifecycleScope
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.databinding.ActivityRegisterBinding
+import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
+import com.lyc.epidemiccontrol.utils.Const
+import com.lyc.epidemiccontrol.utils.ECLib
+import com.lyc.epidemiccontrol.utils.LogUtils
 import com.lyc.epidemiccontrol.utils.ToastUtils
 import kotlinx.coroutines.launch
 
@@ -47,10 +51,17 @@ class RegisterActivity:BaseActivity<ActivityRegisterBinding>() {
                 }else{
                     mDataBinding.rb2.text.toString()
                 }
-
                 lifecycleScope.launch {
                     val map = SysNetConfig.buildRegisterMap(username,userNumber,password,email,phone,address,sex)
-                    SystemRepository.registerRequest(map)
+                    val b = SystemRepository.registerRequest(map)
+                    LogUtils.d("register",b.toString())
+                    if (b.code == 0){
+                        ECLib.getSP(Const.SPUser).save {
+                            putString(Const.SPUserName,username)
+                            putString(Const.SPUserPwd,password)
+                        }
+                        startActivityAndFinish<LoginActivity>()
+                    }
                 }
             }
         }

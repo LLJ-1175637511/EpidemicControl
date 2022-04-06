@@ -11,85 +11,87 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar" android:id="@+id/toolbar"/>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="用户名"
+            android:imeOptions="actionNext"
             android:inputType="text"
-            android:imeOptions="actionNext" />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/userNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="账号"
+            android:imeOptions="actionNext"
             android:inputType="number"
-            android:imeOptions="actionNext" />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="密码"
+            android:imeOptions="actionNext"
             android:inputType="textPassword"
-            android:imeOptions="actionNext" />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/confirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="确认密码"
+            android:imeOptions="actionGo"
             android:inputType="textPassword"
-            android:imeOptions="actionGo" />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="邮件"
+            android:imeOptions="actionGo"
             android:inputType="textEmailAddress"
-            android:imeOptions="actionGo" />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="电话"
+            android:imeOptions="actionGo"
             android:inputType="textEmailAddress"
-            android:imeOptions="actionGo" />
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@android:color/black"
             android:hint="地址"
+            android:imeOptions="actionGo"
             android:inputType="text"
-            android:imeOptions="actionGo" />
+            android:textColor="@android:color/black" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:id="@+id/radioGroup"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
 
             <Space
                 android:layout_width="0dp"
@@ -98,11 +100,11 @@
 
             <RadioButton
                 android:id="@+id/rb1"
-                android:text="男"
-                android:checked="true"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="男"
+                android:textColor="@color/black" />
 
             <Space
                 android:layout_width="0dp"
@@ -111,10 +113,10 @@
 
             <RadioButton
                 android:id="@+id/rb2"
-                android:text="女"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="女"
+                android:textColor="@color/black" />
 
             <Space
                 android:layout_width="0dp"
@@ -126,15 +128,15 @@
             android:id="@+id/tvRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="60dp"
-            android:background="@drawable/shape_rect_blue_low"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:background="@drawable/shape_rect_orange_low"
             android:gravity="center"
-            android:text="注  册" />
+            android:text="注  册"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </layout>

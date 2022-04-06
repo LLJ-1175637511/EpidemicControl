@@ -65,7 +65,7 @@ abstract class BaseLoginActivity<DB : ViewDataBinding> : BaseActivity<DB>() {
     private fun loadUserData() {
         ECLib.getSP(Const.SPUser).let { sp ->
             if (sp.contains(Const.SPUserName)) {
-                mUserName = sp.getString(Const.SPUserName, "").toString()
+                mUserName = sp.getString(Const.SPUserID, "").toString()
             }
             if (sp.contains(Const.SPUserPwd)) {
                 mPassWord = sp.getString(Const.SPUserPwd, "").toString()

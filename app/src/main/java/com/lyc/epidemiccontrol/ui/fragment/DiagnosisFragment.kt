@@ -13,7 +13,6 @@ class DiagnosisFragment : BaseFragment<FragmentDiagnosisBinding>() {
     private val vm by activityViewModels<MainVM>()
 
     override fun initCreate() {
-        vm.barColor.postValue(false)
         super.initCreate()
     }
 

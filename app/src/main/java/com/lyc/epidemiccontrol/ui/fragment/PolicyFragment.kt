@@ -13,7 +13,6 @@ class PolicyFragment : BaseFragment<FragmentPolicyBinding>() {
     private val vm by activityViewModels<MainVM>()
 
     override fun initCreate() {
-        vm.barColor.postValue(false)
         super.initCreate()
     }
 
