@@ -15,4 +15,6 @@ object SystemRepository {
     suspend fun appointNewYiMiaoRequest(map: Map<String, String>) = SystemNetWork.appointNewYiMiao(map)
 
     suspend fun appointQueryYiMiaoRequest() = SystemNetWork.appointQueryYiMiao()
+
+    suspend fun getCases() = SystemNetWork.getCases()
 }

@@ -10,7 +10,7 @@ import com.lyc.epidemiccontrol.utils.ToastUtils
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.coroutineContext
 
-class NetVM :ViewModel(){
+abstract class NetVM :ViewModel(){
 
     suspend inline fun <reified T> fastRequest(
         crossinline block: suspend () -> BaseBean

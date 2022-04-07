@@ -3,6 +3,7 @@ package com.lyc.epidemiccontrol.net.network
 import com.lyc.epidemiccontrol.net.RetrofitCreator
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.server.AppointServer
+import com.lyc.epidemiccontrol.net.server.CasesServer
 import com.lyc.epidemiccontrol.net.server.UserServer
 import retrofit2.await
 
@@ -11,6 +12,9 @@ object SystemNetWork {
     private val userServer by lazy { RetrofitCreator.create<UserServer>() }
 
     private val appointServer by lazy { RetrofitCreator.create<AppointServer>() }
+
+    private val casesServer by lazy { RetrofitCreator.create<CasesServer>() }
+
 
     suspend fun login(map: Map<String, String>) = userServer.login(map).await()
 
@@ -27,6 +31,8 @@ object SystemNetWork {
 
     suspend fun appointQueryYiMiao() =
         appointServer.appointQueryYiMiao(SysNetConfig.getUserId(), SysNetConfig.getAuth()).await()
+
+    suspend fun getCases() = casesServer.getCases(SysNetConfig.getAuth()).await()
 
 
 }

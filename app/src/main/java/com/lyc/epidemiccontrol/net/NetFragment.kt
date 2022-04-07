@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.lifecycleScope
 import com.lyc.epidemiccontrol.ext.*
-import com.lyc.epidemiccontrol.ui.activity.BaseActivity
+import com.lyc.epidemiccontrol.ui.fragment.BaseFragment
 import com.lyc.epidemiccontrol.utils.Const
 import com.lyc.epidemiccontrol.utils.ECLib
 import com.lyc.epidemiccontrol.utils.LogUtils
 import com.lyc.epidemiccontrol.utils.ToastUtils
 import kotlinx.coroutines.withContext
 
-abstract class NetActivity<DB:ViewDataBinding>: BaseActivity<DB>() {
+abstract class NetFragment<DB : ViewDataBinding>:BaseFragment<DB>() {
 
     suspend inline fun <reified T> fastRequest(
         isLogin:Boolean = false,
