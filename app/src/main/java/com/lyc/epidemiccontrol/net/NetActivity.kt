@@ -1,6 +1,5 @@
 package com.lyc.epidemiccontrol.net
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.lifecycleScope
 import com.lyc.epidemiccontrol.ext.*

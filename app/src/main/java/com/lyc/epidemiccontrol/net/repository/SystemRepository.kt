@@ -17,4 +17,6 @@ object SystemRepository {
     suspend fun appointQueryYiMiaoRequest() = SystemNetWork.appointQueryYiMiao()
 
     suspend fun getCases() = SystemNetWork.getCases()
+
+    suspend fun getHighDangerArea() = SystemNetWork.getHighDangerArea()
 }

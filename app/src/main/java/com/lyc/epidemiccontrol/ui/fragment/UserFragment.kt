@@ -1,9 +1,7 @@
 package com.lyc.epidemiccontrol.ui.fragment
 
 import android.content.Intent
-import androidx.fragment.app.activityViewModels
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.data.vm.MainVM
 import com.lyc.epidemiccontrol.databinding.FragmentUserBinding
 import com.lyc.epidemiccontrol.ui.activity.LoginActivity
 import com.lyc.epidemiccontrol.utils.ECLib

@@ -3,7 +3,6 @@ package com.lyc.epidemiccontrol.ui.activity
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.databinding.ActivityAppointHesuanBinding
 import com.lyc.epidemiccontrol.databinding.ActivityAppointYimiaoBinding
 import com.lyc.epidemiccontrol.databinding.DialogAppointDateBinding
 import com.lyc.epidemiccontrol.ext.isCodeSuc

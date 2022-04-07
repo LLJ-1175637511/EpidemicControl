@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.data.bean.AppointQueryBean
 import com.lyc.epidemiccontrol.data.bean.AppointQueryYiMiaoBean
-import com.lyc.epidemiccontrol.databinding.ItemAppointQueryBinding
 import com.lyc.epidemiccontrol.databinding.ItemAppointQueryYimiaoBinding
 import com.lyc.epidemiccontrol.utils.convertGeLinTime
 

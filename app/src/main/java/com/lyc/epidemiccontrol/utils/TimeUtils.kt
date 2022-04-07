@@ -2,7 +2,6 @@ package com.lyc.epidemiccontrol.utils
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
-import java.util.*
 
 /***
  * v表示：

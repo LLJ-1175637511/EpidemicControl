@@ -25,8 +25,6 @@ class ManagerFragment : BaseFragment<FragmentManagerBinding>() {
         mDataBinding.ivAppointYiMiaoQuery.setOnClickListener {
             startCommonActivity<AppointYiMiaoQueryActivity>()
         }
-
-
     }
 
 }

@@ -1,10 +1,11 @@
 package com.lyc.epidemiccontrol.ui.activity
 
 import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.data.bean.LoginBean
+import com.lyc.epidemiccontrol.data.vm.DiagnosisVM
 import com.lyc.epidemiccontrol.data.vm.MainVM
 import com.lyc.epidemiccontrol.databinding.ActivityMainBinding
 
@@ -12,7 +13,7 @@ open class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getLayoutId() = R.layout.activity_main
 
-    private val vm by viewModels<MainVM>()
+    private val vm by viewModels<DiagnosisVM>()
 
     override fun init() {
         super.init()
