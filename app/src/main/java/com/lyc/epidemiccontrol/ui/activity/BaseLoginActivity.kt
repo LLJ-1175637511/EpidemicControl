@@ -5,11 +5,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
 import com.lyc.epidemiccontrol.ext.save
+import com.lyc.epidemiccontrol.net.NetActivity
 import com.lyc.epidemiccontrol.utils.Const
 import com.lyc.epidemiccontrol.utils.ECLib
 import com.lyc.epidemiccontrol.utils.ToastUtils
 
-abstract class BaseLoginActivity<DB : ViewDataBinding> : BaseActivity<DB>() {
+abstract class BaseLoginActivity<DB : ViewDataBinding> : NetActivity<DB>() {
 
     override fun init() {
         super.init()
@@ -64,7 +65,7 @@ abstract class BaseLoginActivity<DB : ViewDataBinding> : BaseActivity<DB>() {
 
     private fun loadUserData() {
         ECLib.getSP(Const.SPUser).let { sp ->
-            if (sp.contains(Const.SPUserName)) {
+            if (sp.contains(Const.SPUserID)) {
                 mUserName = sp.getString(Const.SPUserID, "").toString()
             }
             if (sp.contains(Const.SPUserPwd)) {
@@ -76,9 +77,8 @@ abstract class BaseLoginActivity<DB : ViewDataBinding> : BaseActivity<DB>() {
     /**
      * 保存用户名 密码
      */
-    fun savedUserPwdSp(name: String, pwd: String,userId:String) {
+    fun savedUserPwdSp(userId:String,pwd: String) {
         ECLib.getSP(Const.SPUser).save {
-            putString(Const.SPUserName, name)
             putString(Const.SPUserPwd, pwd)
             putString(Const.SPUserID, userId)
         }

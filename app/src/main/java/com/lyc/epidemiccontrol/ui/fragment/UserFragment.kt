@@ -6,16 +6,16 @@ import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.data.vm.MainVM
 import com.lyc.epidemiccontrol.databinding.FragmentUserBinding
 import com.lyc.epidemiccontrol.ui.activity.LoginActivity
+import com.lyc.epidemiccontrol.utils.ECLib
 
 class UserFragment : BaseFragment<FragmentUserBinding>() {
 
     override fun getLayoutId() = R.layout.fragment_user
 
-    private val vm by activityViewModels<MainVM>()
-
     override fun initCreateView() {
         super.initCreateView()
-        vm.userInfo.observe(this){
+        val userBean = ECLib.getUB()
+        userBean?.let{
             mDataBinding.toolbar.toolbarBaseTitle.text = "个人资料"
             mDataBinding.tvEmail.text = "邮箱：${it.eamil}"
             mDataBinding.tvPhone.text = "电话：${it.telephone}"

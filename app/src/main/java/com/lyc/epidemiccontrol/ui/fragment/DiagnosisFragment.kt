@@ -4,7 +4,6 @@ import androidx.fragment.app.activityViewModels
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.data.vm.MainVM
 import com.lyc.epidemiccontrol.databinding.FragmentDiagnosisBinding
-import com.lyc.epidemiccontrol.databinding.FragmentManagerBinding
 
 class DiagnosisFragment : BaseFragment<FragmentDiagnosisBinding>() {
 

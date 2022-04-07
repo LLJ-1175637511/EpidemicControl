@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.AppointAddActivity">
+        tools:context=".ui.activity.AppointHeSuanActivity">
 
         <include
             android:id="@+id/toolbar"
@@ -30,7 +30,6 @@
                 android:hint="电话"
                 android:imeOptions="actionGo"
                 android:inputType="phone"
-                android:text="13190379175"
                 android:textColor="@android:color/black" />
 
             <EditText
@@ -39,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="身份证号"
-                android:text="421726199802197177"
                 android:textColor="@android:color/black" />
 
             <EditText
@@ -50,15 +48,58 @@
                 android:hint="预约地点"
                 android:imeOptions="actionGo"
                 android:inputType="text"
-                android:text="北京协和医院"
                 android:textColor="@android:color/black" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio1"
+                    android:text="第一针"
+                    android:textSize="14sp"
+                    android:checked="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/radio2"
+                    android:text="第二针"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/radio3"
+                    android:text="第三针"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RadioGroup>
 
             <Button
                 android:id="@+id/btDate"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_margin="20dp"
                 android:background="@drawable/shape_rect_blue_low"
                 android:text="选择日期"
                 android:textSize="14sp"

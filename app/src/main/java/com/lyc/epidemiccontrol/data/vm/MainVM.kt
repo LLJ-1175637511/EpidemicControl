@@ -6,7 +6,5 @@ import com.lyc.epidemiccontrol.data.bean.LoginBean
 
 class MainVM:ViewModel() {
 
-    val userInfo = MutableLiveData<LoginBean>()
-
 
 }

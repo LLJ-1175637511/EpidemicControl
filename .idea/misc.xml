@@ -17,11 +17,17 @@
         <entry key="app/src/main/res/drawable-v24/shape_rect_blue_low.xml" value="0.203" />
         <entry key="app/src/main/res/drawable-v24/shape_rect_white_low.xml" value="0.203" />
         <entry key="app/src/main/res/layout/activity_appoint_add.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_appoint_hesuan.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_appoint_query.xml" value="0.1802536231884058" />
+        <entry key="app/src/main/res/layout/activity_appoint_query_yimiao.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_appoint_yimiao.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/dialog_appoint_date.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_manager.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/item_appoint_query.xml" value="0.2729383827983469" />
+        <entry key="app/src/main/res/layout/item_appoint_query_yimiao.xml" value="0.19610507246376813" />
       </map>
     </option>
   </component>

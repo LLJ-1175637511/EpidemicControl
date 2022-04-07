@@ -1,10 +1,7 @@
 package com.lyc.epidemiccontrol.net.config
 
-import android.text.Editable
 import com.lyc.epidemiccontrol.utils.Const
 import com.lyc.epidemiccontrol.utils.ECLib
-import okhttp3.MediaType
-import okhttp3.RequestBody
 
 object SysNetConfig {
 
@@ -19,6 +16,7 @@ object SysNetConfig {
     const val IdentityNum = "IdentityNum"
     const val AppintDate = "AppintDate"
     const val AppintSite = "AppintSite"
+    const val AppintType = "AppintType"
 
     const val MULTIPART_TEXT = "text/plain"
     const val MULTIPART_FILE = "multipart/form-data"
@@ -50,15 +48,31 @@ object SysNetConfig {
         creatDate: String,
         telephone: String,
         appintDate: String,
-        appintSite: String
+        appintSite: String,
+        identityNum : String
     ) = mapOf(
         UserNum to getUserId(),
         CreatDate to creatDate,
         Telephone to telephone,
         AppintDate to appintDate,
         AppintSite to appintSite,
+        IdentityNum to identityNum
     )
 
+    fun buildAppointNewYiMiaoMap(
+        appintType: String,
+        telephone: String,
+        appintDate: String,
+        appintSite: String,
+        identityNum : String
+    ) = mapOf(
+        UserNum to getUserId(),
+        Telephone to telephone,
+        AppintDate to appintDate,
+        AppintSite to appintSite,
+        IdentityNum to identityNum,
+        AppintType to appintType
+    )
 
     fun getUserId() = ECLib.getSP(Const.SPUser).getString(Const.SPUserID,"").toString()
 

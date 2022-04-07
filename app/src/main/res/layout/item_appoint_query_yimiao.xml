@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/shape_rect_white_low"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUserNum"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="用户：" />
+
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="手机号："  />
+
+            <TextView
+                android:id="@+id/tvIdCard"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="身份证号："  />
+
+            <TextView
+                android:id="@+id/tvAppointDate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="预约时间："  />
+
+            <TextView
+                android:id="@+id/tvAppointAddress"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="预约地点："  />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

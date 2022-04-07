@@ -3,18 +3,14 @@ package com.lyc.epidemiccontrol.ui.activity
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.app.MyApplication
 import com.lyc.epidemiccontrol.data.bean.LoginBean
 import com.lyc.epidemiccontrol.databinding.ActivityLoginBinding
-import com.lyc.epidemiccontrol.ext.baseConverter
-import com.lyc.epidemiccontrol.ext.fastRequest
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
+import com.lyc.epidemiccontrol.utils.ECLib
 import com.lyc.epidemiccontrol.utils.ToastUtils
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseLoginActivity<ActivityLoginBinding>() {
@@ -64,7 +60,8 @@ class LoginActivity : BaseLoginActivity<ActivityLoginBinding>() {
                     )
                 )
             }?.let {
-                savedUserPwdSp(username, password,it.userNum)
+                savedUserPwdSp(username, password)
+                ECLib.setUB(it)
                 val i = Intent(this@LoginActivity,MainActivity::class.java)
                 i.putExtra(userInfo,it)
                 startActivity(i)

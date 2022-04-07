@@ -57,7 +57,7 @@ class RegisterActivity:BaseActivity<ActivityRegisterBinding>() {
                     LogUtils.d("register",b.toString())
                     if (b.code == 0){
                         ECLib.getSP(Const.SPUser).save {
-                            putString(Const.SPUserName,username)
+                            putString(Const.SPUserID,username)
                             putString(Const.SPUserPwd,password)
                         }
                         startActivityAndFinish<LoginActivity>()

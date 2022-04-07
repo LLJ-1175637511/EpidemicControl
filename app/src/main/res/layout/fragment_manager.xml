@@ -22,144 +22,196 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:paddingBottom="30dp"
+            android:layout_height="0dp"
             android:background="@drawable/shape_rect_white_low"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline4">
+            app:layout_constraintTop_toTopOf="@+id/guideline4">
 
-            <ImageView
-                android:id="@+id/ivJieZhong"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintEnd_toStartOf="@+id/ivYiMiao"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/manager1" />
-
-            <ImageView
-                android:id="@+id/ivYiMiao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/ivJieZhong"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/ivJieZhong"
-                app:layout_constraintTop_toTopOf="@+id/ivJieZhong"
-                app:srcCompat="@mipmap/manager2" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/guideline4">
 
-            <ImageView
-                android:id="@+id/ivYuYue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:layout_constraintStart_toStartOf="@+id/ivJieZhong"
-                app:layout_constraintTop_toBottomOf="@+id/ivJieZhong"
-                app:srcCompat="@mipmap/manager3" />
+                <ImageView
+                    android:id="@+id/ivAppointYiMiao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/ivAppointYiMiaoQuery"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/manager1" />
 
-            <ImageView
-                android:id="@+id/ivJieGuo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/ivYuYue"
-                app:layout_constraintStart_toStartOf="@+id/ivYiMiao"
-                app:layout_constraintTop_toTopOf="@+id/ivYuYue"
-                app:srcCompat="@mipmap/manager4" />
+                <ImageView
+                    android:id="@+id/ivAppointYiMiaoQuery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivAppointYiMiao"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/ivAppointYiMiao"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppointYiMiao"
+                    app:srcCompat="@mipmap/manager2" />
 
-            <ImageView
-                android:id="@+id/ivFanXiang"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="@+id/ivJieGuo"
-                app:layout_constraintStart_toStartOf="@+id/ivYuYue"
-                app:layout_constraintTop_toBottomOf="@+id/ivYuYue"
-                app:srcCompat="@mipmap/manager5" />
+                <ImageView
+                    android:id="@+id/ivAppoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppointYiMiao"
+                    app:layout_constraintTop_toBottomOf="@+id/ivAppointYiMiao"
+                    app:srcCompat="@mipmap/manager3" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="12dp"
-                android:clickable="false"
-                android:text="接种情况"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/ivJieZhong"
-                app:layout_constraintTop_toTopOf="@+id/ivJieZhong" />
+                <ImageView
+                    android:id="@+id/ivAppointQuery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivAppoint"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppointYiMiaoQuery"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppoint"
+                    app:srcCompat="@mipmap/manager4" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="12dp"
-                android:clickable="false"
-                android:text="疫苗预约"
-                android:textColor="@color/grey_low"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/ivYiMiao"
-                app:layout_constraintTop_toTopOf="@+id/ivYiMiao" />
+                <ImageView
+                    android:id="@+id/ivResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppoint"
+                    app:layout_constraintTop_toBottomOf="@+id/ivAppoint"
+                    app:srcCompat="@mipmap/manager6" />
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="12dp"
-                android:clickable="false"
-                android:text="核酸预约"
-                android:textColor="@color/grey_low"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/ivYuYue"
-                app:layout_constraintTop_toTopOf="@+id/ivYuYue" />
+                <ImageView
+                    android:id="@+id/ivJieGuo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivResult"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppointQuery"
+                    app:layout_constraintTop_toTopOf="@+id/ivResult"
+                    app:srcCompat="@mipmap/manager7" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="12dp"
-                android:clickable="false"
-                android:text="核酸结果"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/ivJieGuo"
-                app:layout_constraintTop_toTopOf="@+id/ivJieGuo" />
+                <ImageView
+                    android:id="@+id/ivFanXiang"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toEndOf="@+id/ivAppointQuery"
+                    app:layout_constraintStart_toStartOf="@+id/ivResult"
+                    app:layout_constraintTop_toBottomOf="@+id/ivResult"
+                    app:srcCompat="@mipmap/manager6" />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:clickable="false"
-                android:text="返 乡 上 报"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/ivFanXiang"
-                app:layout_constraintEnd_toStartOf="@+id/ivJieGuo"
-                app:layout_constraintStart_toStartOf="@+id/ivFanXiang"
-                app:layout_constraintTop_toTopOf="@+id/ivFanXiang" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:clickable="false"
+                    android:text="疫苗预约"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppointYiMiao"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppointYiMiao" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:clickable="false"
+                    android:text="疫苗预约查询"
+                    android:textColor="@color/grey_low"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppointYiMiaoQuery"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppointYiMiaoQuery" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:clickable="false"
+                    android:text="核酸预约"
+                    android:textColor="@color/grey_low"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppoint"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppoint" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:clickable="false"
+                    android:text="核酸预约查询"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppointQuery"
+                    app:layout_constraintTop_toTopOf="@+id/ivAppointQuery" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:clickable="false"
+                    android:text="接种情况"
+                    android:textColor="@color/grey_low"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/ivResult"
+                    app:layout_constraintTop_toTopOf="@+id/ivResult" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="12dp"
+                    android:clickable="false"
+                    android:text="接种情况"
+                    android:textColor="@color/grey_low"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/ivJieGuo"
+                    app:layout_constraintTop_toTopOf="@+id/ivJieGuo" />
 
 
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:clickable="false"
+                    android:text="返 乡 上 报"
+                    android:textColor="@color/grey_low"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivFanXiang"
+                    app:layout_constraintEnd_toStartOf="@+id/ivAppointQuery"
+                    app:layout_constraintStart_toStartOf="@+id/ivFanXiang"
+                    app:layout_constraintTop_toTopOf="@+id/ivFanXiang" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

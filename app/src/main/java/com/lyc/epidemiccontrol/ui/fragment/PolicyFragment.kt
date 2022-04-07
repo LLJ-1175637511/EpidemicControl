@@ -3,7 +3,6 @@ package com.lyc.epidemiccontrol.ui.fragment
 import androidx.fragment.app.activityViewModels
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.data.vm.MainVM
-import com.lyc.epidemiccontrol.databinding.FragmentManagerBinding
 import com.lyc.epidemiccontrol.databinding.FragmentPolicyBinding
 
 class PolicyFragment : BaseFragment<FragmentPolicyBinding>() {

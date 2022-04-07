@@ -1,12 +1,11 @@
 package com.lyc.epidemiccontrol.ui.fragment
 
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import com.leaf.library.StatusBarUtil
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.data.vm.MainVM
 import com.lyc.epidemiccontrol.databinding.FragmentManagerBinding
-import com.lyc.epidemiccontrol.ui.activity.AppointAddActivity
+import com.lyc.epidemiccontrol.ui.activity.AppointHeSuanActivity
+import com.lyc.epidemiccontrol.ui.activity.AppointHeSuanQueryActivity
+import com.lyc.epidemiccontrol.ui.activity.AppointYiMiaoActivity
+import com.lyc.epidemiccontrol.ui.activity.AppointYiMiaoQueryActivity
 
 class ManagerFragment : BaseFragment<FragmentManagerBinding>() {
 
@@ -14,9 +13,19 @@ class ManagerFragment : BaseFragment<FragmentManagerBinding>() {
 
     override fun initCreateView() {
         super.initCreateView()
-        mDataBinding.ivYuYue.setOnClickListener {
-            startCommonActivity<AppointAddActivity>()
+        mDataBinding.ivAppoint.setOnClickListener {
+            startCommonActivity<AppointHeSuanActivity>()
         }
+        mDataBinding.ivAppointQuery.setOnClickListener {
+            startCommonActivity<AppointHeSuanQueryActivity>()
+        }
+        mDataBinding.ivAppointYiMiao.setOnClickListener {
+            startCommonActivity<AppointYiMiaoActivity>()
+        }
+        mDataBinding.ivAppointYiMiaoQuery.setOnClickListener {
+            startCommonActivity<AppointYiMiaoQueryActivity>()
+        }
+
 
     }
 

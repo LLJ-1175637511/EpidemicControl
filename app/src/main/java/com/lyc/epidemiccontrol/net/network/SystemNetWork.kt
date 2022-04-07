@@ -1,7 +1,7 @@
 package com.lyc.epidemiccontrol.net.network
 
-import com.lyc.epidemiccontrol.net.BaseBean
 import com.lyc.epidemiccontrol.net.RetrofitCreator
+import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.server.AppointServer
 import com.lyc.epidemiccontrol.net.server.UserServer
 import retrofit2.await
@@ -16,13 +16,17 @@ object SystemNetWork {
 
     suspend fun register(map: Map<String, String>) = userServer.register(map).await()
 
-//    suspend fun appointNew(map: Map<String, String>,idCard: Long) = appointServer.appointNew(map,idCard).await()
-    suspend fun appointNew(map: Map<String, String>,idCard: Long): BaseBean {
-    println(map)
-    print(idCard)
-    return appointServer.appointNew(map,idCard).await()
-}
+    suspend fun appointNew(map: Map<String, String>) =
+        appointServer.appointNew(map, SysNetConfig.getAuth()).await()
 
+    suspend fun appointNewYiMiao(map: Map<String, String>) =
+        appointServer.appointNewYiMiao(map, SysNetConfig.getAuth()).await()
+
+    suspend fun appointQuery() =
+        appointServer.appointQuery(SysNetConfig.getUserId(), SysNetConfig.getAuth()).await()
+
+    suspend fun appointQueryYiMiao() =
+        appointServer.appointQueryYiMiao(SysNetConfig.getUserId(), SysNetConfig.getAuth()).await()
 
 
 }

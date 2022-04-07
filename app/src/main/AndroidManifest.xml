@@ -18,11 +18,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".ui.activity.AppointAddActivity"
+            android:name=".ui.activity.AppointHeSuanQueryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.AppointHeSuanActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ui.activity.LoginActivity"
             android:exported="true">
@@ -35,6 +38,8 @@
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:exported="true" />
+        <activity android:name=".ui.activity.AppointYiMiaoActivity" />
+        <activity android:name=".ui.activity.AppointYiMiaoQueryActivity" />
     </application>
 
 </manifest>
