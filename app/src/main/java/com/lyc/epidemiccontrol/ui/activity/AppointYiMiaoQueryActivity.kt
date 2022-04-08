@@ -6,7 +6,7 @@ import com.lyc.epidemiccontrol.data.bean.AppointQueryYiMiaoBean
 import com.lyc.epidemiccontrol.databinding.ActivityAppointQueryYimiaoBinding
 import com.lyc.epidemiccontrol.net.NetActivity
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
-import com.lyc.epidemiccontrol.ui.dapter.AppointQueryYiMiaoRV
+import com.lyc.epidemiccontrol.ui.adapter.AppointQueryYiMiaoRV
 import com.lyc.epidemiccontrol.utils.ToastUtils
 import kotlinx.coroutines.launch
 

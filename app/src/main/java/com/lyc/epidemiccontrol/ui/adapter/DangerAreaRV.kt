@@ -1,4 +1,4 @@
-package com.lyc.epidemiccontrol.ui.dapter
+package com.lyc.epidemiccontrol.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,15 +6,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lyc.epidemiccontrol.R
-import com.lyc.epidemiccontrol.data.bean.AppointQueryBean
 import com.lyc.epidemiccontrol.data.bean.DangerAreaBean
-import com.lyc.epidemiccontrol.databinding.ItemAppointQueryBinding
 import com.lyc.epidemiccontrol.databinding.ItemDangerAreaBinding
-import com.lyc.epidemiccontrol.utils.convertGeLinTime
 
 
-class HighDangerRV(private val list: MutableList<DangerAreaBean>) :
-    RecyclerView.Adapter<HighDangerRV.Holder>() {
+class DangerAreaRV(private val list: MutableList<DangerAreaBean>) :
+    RecyclerView.Adapter<DangerAreaRV.Holder>() {
 
     class Holder(val binding: ItemDangerAreaBinding) : RecyclerView.ViewHolder(binding.root) {
 

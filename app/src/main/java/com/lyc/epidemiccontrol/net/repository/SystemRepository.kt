@@ -19,4 +19,6 @@ object SystemRepository {
     suspend fun getCases() = SystemNetWork.getCases()
 
     suspend fun getHighDangerArea() = SystemNetWork.getHighDangerArea()
+
+    suspend fun getMidDangerArea() = SystemNetWork.getMidDangerArea()
 }

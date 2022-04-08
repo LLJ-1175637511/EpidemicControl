@@ -65,7 +65,7 @@
                     android:id="@+id/ivAppoint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="25dp"
                     app:layout_constraintStart_toStartOf="@+id/ivAppointYiMiao"
                     app:layout_constraintTop_toBottomOf="@+id/ivAppointYiMiao"
                     app:srcCompat="@mipmap/manager3" />
@@ -80,32 +80,14 @@
                     app:srcCompat="@mipmap/manager4" />
 
                 <ImageView
-                    android:id="@+id/ivResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="@+id/ivAppoint"
-                    app:layout_constraintTop_toBottomOf="@+id/ivAppoint"
-                    app:srcCompat="@mipmap/manager6" />
-
-                <ImageView
-                    android:id="@+id/ivJieGuo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivResult"
-                    app:layout_constraintStart_toStartOf="@+id/ivAppointQuery"
-                    app:layout_constraintTop_toTopOf="@+id/ivResult"
-                    app:srcCompat="@mipmap/manager7" />
-
-                <ImageView
                     android:id="@+id/ivFanXiang"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:scaleType="fitXY"
+                    android:layout_marginTop="30dp"
                     app:layout_constraintEnd_toEndOf="@+id/ivAppointQuery"
-                    app:layout_constraintStart_toStartOf="@+id/ivResult"
-                    app:layout_constraintTop_toBottomOf="@+id/ivResult"
+                    app:layout_constraintStart_toStartOf="@+id/ivAppoint"
+                    app:layout_constraintTop_toBottomOf="@+id/ivAppoint"
                     app:srcCompat="@mipmap/manager5" />
 
                 <TextView
@@ -164,34 +146,6 @@
                     app:layout_constraintStart_toStartOf="@+id/ivAppointQuery"
                     app:layout_constraintTop_toTopOf="@+id/ivAppointQuery" />
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="12dp"
-                    android:clickable="false"
-                    android:text="接种情况"
-                    android:textColor="@color/grey_low"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/ivResult"
-                    app:layout_constraintTop_toTopOf="@+id/ivResult" />
-
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="12dp"
-                    android:clickable="false"
-                    android:text="接种情况"
-                    android:textColor="@color/grey_low"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/ivJieGuo"
-                    app:layout_constraintTop_toTopOf="@+id/ivJieGuo" />
 
                 <TextView
                     android:id="@+id/textView7"

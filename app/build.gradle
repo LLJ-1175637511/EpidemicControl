@@ -66,4 +66,7 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.1.0'
     implementation 'com.github.Ye-Miao:StatusBarUtil:1.7.5'
 
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+
 }

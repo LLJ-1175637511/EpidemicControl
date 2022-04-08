@@ -13,8 +13,6 @@ open class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getLayoutId() = R.layout.activity_main
 
-    private val vm by viewModels<DiagnosisVM>()
-
     override fun init() {
         super.init()
         initNav()

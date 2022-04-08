@@ -12,6 +12,7 @@ class DiagnosisVM : NetVM() {
 
     var casesBean = MutableLiveData<ConfirmedCasesBean>()
     var highDangerBean = MutableLiveData<List<DangerAreaBean>>()
+    var midDangerBean = MutableLiveData<List<DangerAreaBean>>()
 
     fun getCases() {
         viewModelScope.launch {
@@ -34,11 +35,26 @@ class DiagnosisVM : NetVM() {
             }
         }
     }
+    fun getMidDangerArea() {
+        viewModelScope.launch {
+            fastRequest<List<DangerAreaBean>> {
+                SystemRepository.getMidDangerArea()
+            }?.let {
+                if (it.isEmpty()) return@let
+                midDangerBean.postValue(it)
+            }
+        }
+    }
 
     fun filterHighList(content: String): List<DangerAreaBean> = if (content.isEmpty()) {
         getHighDangerArea()
         emptyList()
     } else highDangerBean.value?.filter { it.district.contains(content) } ?: emptyList()
+
+  fun filterMidList(content: String): List<DangerAreaBean> = if (content.isEmpty()) {
+        getMidDangerArea()
+        emptyList()
+    } else midDangerBean.value?.filter { it.district.contains(content) } ?: emptyList()
 
 
 }

@@ -16,4 +16,7 @@ interface CasesServer {
     @GET("HigtDistrict/GetAllHigtDistricts")
     fun getHighDangerArea(@Header(Auth) auth: String): Call<BaseBean>
 
+    @GET("MidDistrict/GetAllMidsDistricts")
+    fun getMidDangerArea(@Header(Auth) auth: String): Call<BaseBean>
+
 }

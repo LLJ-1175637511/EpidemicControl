@@ -36,5 +36,7 @@ object SystemNetWork {
 
     suspend fun getHighDangerArea() = casesServer.getHighDangerArea(SysNetConfig.getAuth()).await()
 
+    suspend fun getMidDangerArea() = casesServer.getMidDangerArea(SysNetConfig.getAuth()).await()
+
 
 }

@@ -1,4 +1,4 @@
-package com.lyc.epidemiccontrol.ui.dapter
+package com.lyc.epidemiccontrol.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
