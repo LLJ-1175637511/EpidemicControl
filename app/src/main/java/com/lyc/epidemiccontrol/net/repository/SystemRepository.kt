@@ -1,6 +1,8 @@
 package com.lyc.epidemiccontrol.net.repository
 
 import com.lyc.epidemiccontrol.net.network.SystemNetWork
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 object SystemRepository {
 
@@ -21,4 +23,9 @@ object SystemRepository {
     suspend fun getHighDangerArea() = SystemNetWork.getHighDangerArea()
 
     suspend fun getMidDangerArea() = SystemNetWork.getMidDangerArea()
+
+    suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, RequestBody>) = SystemNetWork.reportPhoto(photo,map)
+
+
+
 }

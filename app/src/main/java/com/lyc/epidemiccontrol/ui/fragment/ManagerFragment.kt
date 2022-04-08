@@ -2,10 +2,7 @@ package com.lyc.epidemiccontrol.ui.fragment
 
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.databinding.FragmentManagerBinding
-import com.lyc.epidemiccontrol.ui.activity.AppointHeSuanActivity
-import com.lyc.epidemiccontrol.ui.activity.AppointHeSuanQueryActivity
-import com.lyc.epidemiccontrol.ui.activity.AppointYiMiaoActivity
-import com.lyc.epidemiccontrol.ui.activity.AppointYiMiaoQueryActivity
+import com.lyc.epidemiccontrol.ui.activity.*
 
 class ManagerFragment : BaseFragment<FragmentManagerBinding>() {
 
@@ -24,6 +21,9 @@ class ManagerFragment : BaseFragment<FragmentManagerBinding>() {
         }
         mDataBinding.ivAppointYiMiaoQuery.setOnClickListener {
             startCommonActivity<AppointYiMiaoQueryActivity>()
+        }
+        mDataBinding.ivBackHome.setOnClickListener {
+            startCommonActivity<BackHomeActivity>()
         }
     }
 

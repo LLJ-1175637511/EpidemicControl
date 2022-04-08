@@ -80,7 +80,7 @@
                     app:srcCompat="@mipmap/manager4" />
 
                 <ImageView
-                    android:id="@+id/ivFanXiang"
+                    android:id="@+id/ivBackHome"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
@@ -157,10 +157,10 @@
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivFanXiang"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBackHome"
                     app:layout_constraintEnd_toStartOf="@+id/ivAppointQuery"
-                    app:layout_constraintStart_toStartOf="@+id/ivFanXiang"
-                    app:layout_constraintTop_toTopOf="@+id/ivFanXiang" />
+                    app:layout_constraintStart_toStartOf="@+id/ivBackHome"
+                    app:layout_constraintTop_toTopOf="@+id/ivBackHome" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

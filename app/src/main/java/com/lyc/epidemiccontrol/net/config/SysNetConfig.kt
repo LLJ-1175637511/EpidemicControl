@@ -1,7 +1,21 @@
 package com.lyc.epidemiccontrol.net.config
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.net.Uri
 import com.lyc.epidemiccontrol.utils.Const
 import com.lyc.epidemiccontrol.utils.ECLib
+import com.lyc.epidemiccontrol.utils.LogUtils
+import com.lyc.epidemiccontrol.utils.PhotoUtils
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.format
+import id.zelory.compressor.constraint.quality
+import id.zelory.compressor.constraint.resolution
+import id.zelory.compressor.constraint.size
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 
 object SysNetConfig {
 
@@ -81,6 +95,24 @@ object SysNetConfig {
             Const.SPNetToken, ""
         ).toString()
     }"
+
+    suspend fun reportBackHome(context: Context, uri: Uri): MultipartBody.Part {
+        val path = PhotoUtils.getFileAbsolutePath(context,uri)
+        val faceFile = File(path)
+        if (!faceFile.exists()) throw Exception("图片缺失")
+
+        val compressedImageFile = Compressor.compress(context, faceFile) {
+            quality(50)
+            format(Bitmap.CompressFormat.JPEG)
+            size(512_152) // 512kb
+        }
+
+        val fmt = MediaType.parse(MULTIPART_FILE)
+
+        val faceRequest = RequestBody.create(fmt, compressedImageFile)
+        //注意字段名
+        return MultipartBody.Part.createFormData("CheckFace", compressedImageFile.name, faceRequest)
+    }
 
 
 }

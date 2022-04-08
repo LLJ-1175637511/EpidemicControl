@@ -5,6 +5,8 @@ import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.server.AppointServer
 import com.lyc.epidemiccontrol.net.server.CasesServer
 import com.lyc.epidemiccontrol.net.server.UserServer
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.await
 
 object SystemNetWork {
@@ -31,6 +33,9 @@ object SystemNetWork {
 
     suspend fun appointQueryYiMiao() =
         appointServer.appointQueryYiMiao(SysNetConfig.getUserId(), SysNetConfig.getAuth()).await()
+
+    suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, RequestBody>,) =
+        appointServer.reportPhoto(SysNetConfig.getAuth(),map,photo).await()
 
     suspend fun getCases() = casesServer.getCases(SysNetConfig.getAuth()).await()
 

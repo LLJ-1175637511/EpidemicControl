@@ -22,6 +22,8 @@
         <entry key="app/src/main/res/layout/activity_appoint_query.xml" value="0.1802536231884058" />
         <entry key="app/src/main/res/layout/activity_appoint_query_yimiao.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_appoint_yimiao.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_back_home.xml" value="0.19701086956521738" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.19701086956521738" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/dialog_appoint_date.xml" value="0.15520833333333334" />
