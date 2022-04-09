@@ -3,6 +3,7 @@ package com.lyc.epidemiccontrol.net.config
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
+import androidx.core.net.toFile
 import com.lyc.epidemiccontrol.utils.Const
 import com.lyc.epidemiccontrol.utils.ECLib
 import com.lyc.epidemiccontrol.utils.LogUtils
@@ -31,6 +32,7 @@ object SysNetConfig {
     const val AppintDate = "AppintDate"
     const val AppintSite = "AppintSite"
     const val AppintType = "AppintType"
+    const val image = "image"
 
     const val MULTIPART_TEXT = "text/plain"
     const val MULTIPART_FILE = "multipart/form-data"
@@ -99,6 +101,7 @@ object SysNetConfig {
     suspend fun reportBackHome(context: Context, uri: Uri): MultipartBody.Part {
         val path = PhotoUtils.getFileAbsolutePath(context,uri)
         val faceFile = File(path)
+//        val faceFile = uri.toFile()
         if (!faceFile.exists()) throw Exception("图片缺失")
 
         val compressedImageFile = Compressor.compress(context, faceFile) {
@@ -111,7 +114,7 @@ object SysNetConfig {
 
         val faceRequest = RequestBody.create(fmt, compressedImageFile)
         //注意字段名
-        return MultipartBody.Part.createFormData("CheckFace", compressedImageFile.name, faceRequest)
+        return MultipartBody.Part.createFormData(image, compressedImageFile.name, faceRequest)
     }
 
 

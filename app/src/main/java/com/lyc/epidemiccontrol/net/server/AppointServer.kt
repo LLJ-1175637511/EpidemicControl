@@ -36,7 +36,7 @@ interface AppointServer {
     ): Call<BaseBean>
 
     @Multipart
-    @POST("AppointVaccine/GetAppointVaccineInfo")
+    @POST("Test/UploadimageTest")
     fun reportPhoto(
         @Header(Auth) auth: String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,

@@ -8,13 +8,19 @@ import android.os.Build
 import android.os.Environment
 import android.provider.Settings
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.databinding.ActivityBackHomeBinding
+import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.NetActivity
+import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
+import com.lyc.epidemiccontrol.utils.Const
+import com.lyc.epidemiccontrol.utils.ECLib
 import com.lyc.epidemiccontrol.utils.ToastUtils
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
@@ -48,19 +54,39 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
 
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "返乡上报"
-        mDataBinding.ivPhoto.setOnClickListener {
+        mDataBinding.tvReChoose.setOnClickListener {
             choosePhoto()
         }
         mDataBinding.btSelectPhoto.setOnClickListener {
             reportPhoto()
         }
+        val sp = ECLib.getSP(Const.SPPhoto)
+        if (sp.contains(Const.SPPhotoBackHome)){
+            val u = sp.getString(Const.SPPhotoBackHome,"")
+            Glide.with(this).load(u).into(mDataBinding.ivPhoto)
+        }
     }
 
     private fun reportPhoto() {
+        val u = uri
+        if (u == null) {
+            ToastUtils.toastShort("未选择图片 或 图片无更新")
+            return
+        }
         lifecycleScope.launch {
-//            fastRequest<String> {
-//                SystemRepository.reportPhoto()
-//            }
+            fastRequest<String> {
+                SystemRepository.reportPhoto(
+                    SysNetConfig.reportBackHome(this@BackHomeActivity,u),
+                    mapOf()
+                )
+            }?.let {
+                ECLib.getSP(Const.SPPhoto).save {
+                    putString(Const.SPPhotoBackHome,"http://39.105.114.212:8080${it}")
+                }
+                ToastUtils.toastShort("上传成功")
+                delay(1000)
+                finish()
+            }
         }
     }
 
@@ -78,10 +104,6 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
                 val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
                 intent.data = Uri.parse("package:" + getPackageName())
                 launchPhotoPermission.launch(intent)
-            } else { //没有获取到“允许管理所有文件”权限
-                //请求“允许管理所有文件”权限
-                ToastUtils.toastShort("存储权限获取失败")
-                finish()
             }
         }
     }
