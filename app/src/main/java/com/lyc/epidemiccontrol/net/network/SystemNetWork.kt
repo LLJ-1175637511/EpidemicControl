@@ -43,5 +43,9 @@ object SystemNetWork {
 
     suspend fun getMidDangerArea() = casesServer.getMidDangerArea(SysNetConfig.getAuth()).await()
 
+    suspend fun getYiMiaoArea(site:String) = appointServer.appointQueryYiMiaoArea(site,SysNetConfig.getAuth()).await()
+
+    suspend fun getHeSuanArea(site:String) = appointServer.appointQueryHeSuanArea(site,SysNetConfig.getAuth()).await()
+
 
 }

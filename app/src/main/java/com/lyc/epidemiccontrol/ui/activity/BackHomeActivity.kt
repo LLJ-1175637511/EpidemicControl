@@ -8,11 +8,12 @@ import android.os.Build
 import android.os.Environment
 import android.provider.Settings
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.edit
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.databinding.ActivityBackHomeBinding
+import com.lyc.epidemiccontrol.databinding.DialogAppointDateBinding
 import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.NetActivity
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
@@ -54,6 +55,7 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
 
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "返乡上报"
+        mDataBinding.time.text = INIT_TIME
         mDataBinding.tvReChoose.setOnClickListener {
             choosePhoto()
         }
@@ -73,11 +75,16 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
             ToastUtils.toastShort("未选择图片 或 图片无更新")
             return
         }
+        val time = mDataBinding.time.text.toString()
+        if (time == INIT_TIME){
+            ToastUtils.toastShort("未选择返乡时间")
+            return
+        }
         lifecycleScope.launch {
             fastRequest<String> {
                 SystemRepository.reportPhoto(
-                    SysNetConfig.reportBackHome(this@BackHomeActivity,u),
-                    mapOf()
+                    SysNetConfig.reportBackHomePhoto(this@BackHomeActivity,u),
+                    SysNetConfig.reportBackHomeText(time)
                 )
             }?.let {
                 ECLib.getSP(Const.SPPhoto).save {
@@ -108,4 +115,21 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
         }
     }
 
+    private fun showDatePicker() {
+        val binding = DialogAppointDateBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(this)
+            .setView(binding.root)
+            .create()
+        dialog.setCancelable(false)
+        binding.btSure.setOnClickListener {
+            mDataBinding.time.text =
+                "${binding.datePicker.year}年${binding.datePicker.month}月${binding.datePicker.dayOfMonth}"
+            dialog.cancel()
+        }
+        dialog.show()
+    }
+
+    companion object{
+        private const val INIT_TIME = "设置预约时间"
+    }
 }

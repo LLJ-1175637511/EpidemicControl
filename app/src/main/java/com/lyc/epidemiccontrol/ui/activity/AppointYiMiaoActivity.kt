@@ -9,6 +9,7 @@ import com.lyc.epidemiccontrol.ext.isCodeSuc
 import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
+import com.lyc.epidemiccontrol.ui.dialog.AppointAreaDialog
 import com.lyc.epidemiccontrol.utils.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -28,17 +29,21 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
 
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "疫苗预约"
+        mDataBinding.address.text = INIT_AREA
         ECLib.getUB()?.let {
             mDataBinding.phone.setText(it.telephone)
         }
-        mDataBinding.address.setText(ECLib.getSP(Const.SPUser).getString(Const.SPAppointAddress,""))
-        mDataBinding.idCard.setText(ECLib.getSP(Const.SPUser).getString(Const.SPUserIDCard,""))
+        mDataBinding.idCard.setText(ECLib.getSP(Const.SPUser).getString(Const.SPUserIDCard, ""))
 
         mDataBinding.btDate.setOnClickListener {
             showDatePicker()
         }
         mDataBinding.tvAppoint.setOnClickListener {
             lifecycleScope.launch {
+                if (mDataBinding.address.text.toString() == INIT_AREA){
+                    ToastUtils.toastShort("请先选择预约地点")
+                    return@launch
+                }
                 val b = SystemRepository.appointNewYiMiaoRequest(
                     SysNetConfig.buildAppointNewYiMiaoMap(
                         appintType = mAppointType.toString(),
@@ -50,8 +55,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
                 )
                 if (b.code.isCodeSuc()) {
                     ECLib.getSP(Const.SPUser).save {
-                        putString(Const.SPAppointAddress,mDataBinding.address.text.toString())
-                        putString(Const.SPUserIDCard,mDataBinding.idCard.text.toString())
+                        putString(Const.SPUserIDCard, mDataBinding.idCard.text.toString())
                     }
                     LogUtils.d("Appiont", "suc")
                     ToastUtils.toastShort("预约成功")
@@ -64,13 +68,18 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
             }
         }
         mDataBinding.radioGroup.setOnCheckedChangeListener { _, id ->
-            when(id){
+            when (id) {
                 R.id.radio1 -> mAppointType = 1
                 R.id.radio2 -> mAppointType = 2
                 R.id.radio3 -> mAppointType = 3
             }
         }
-
+        mDataBinding.address.setOnClickListener {
+            showDialog(
+                AppointAreaDialog(AppointAreaDialog.Companion.AppointType.YiMiao) {
+                mDataBinding.address.text =  it
+            }, "AppointYiMiaoArea")
+        }
     }
 
     private fun showDatePicker() {
@@ -87,4 +96,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         dialog.show()
     }
 
+    companion object{
+        private const val INIT_AREA = "设置预约地点"
+    }
 }

@@ -40,14 +40,15 @@
                 android:hint="身份证号"
                 android:textColor="@android:color/black" />
 
-            <EditText
+            <TextView
                 android:id="@+id/address"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:hint="预约地点"
-                android:imeOptions="actionGo"
-                android:inputType="text"
+                android:gravity="center_vertical"
+                android:paddingStart="5dp"
+                android:textSize="14sp"
+                android:text="设置预约地点"
                 android:textColor="@android:color/black" />
 
             <Button

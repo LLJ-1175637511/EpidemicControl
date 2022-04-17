@@ -40,7 +40,7 @@ class LoginActivity : BaseLoginActivity<ActivityLoginBinding>() {
             }
         }
         mDataBinding.tvRegister.setOnClickListener {
-            startActivityAndFinish<RegisterActivity>()
+            startCommonActivity<RegisterActivity>()
         }
     }
 
@@ -63,10 +63,9 @@ class LoginActivity : BaseLoginActivity<ActivityLoginBinding>() {
             }?.let {
                 savedUserPwdSp(username, password)
                 ECLib.setUB(it)
-                val i = Intent(this@LoginActivity,MainActivity::class.java)
+                val i = Intent(this@LoginActivity,target)
                 i.putExtra(userInfo,it)
                 startActivity(i)
-                finish()
             }
         }
     }

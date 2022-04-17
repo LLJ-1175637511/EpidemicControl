@@ -32,7 +32,7 @@
             android:layout_margin="10dp"
             android:hint="账号"
             android:imeOptions="actionNext"
-            android:inputType="number"
+            android:inputType="text"
             android:textColor="@android:color/black" />
 
         <EditText

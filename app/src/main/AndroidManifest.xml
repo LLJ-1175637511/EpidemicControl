@@ -36,6 +36,7 @@
             android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
             android:name=".ui.activity.LoginActivity"
+            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

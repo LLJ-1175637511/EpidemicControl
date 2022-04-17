@@ -36,11 +36,24 @@ interface AppointServer {
     ): Call<BaseBean>
 
     @Multipart
-    @POST("Test/UploadimageTest")
+    @POST("ComingHome/AddComingHomeInfo")
     fun reportPhoto(
         @Header(Auth) auth: String,
         @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
         @Part photo: MultipartBody.Part
     ): Call<BaseBean>
+
+    @GET("VaccineSite/QueryVaccineSite")
+    fun appointQueryYiMiaoArea(
+        @Query(SysNetConfig.site) site: String,
+        @Header(Auth) auth: String,
+    ): Call<BaseBean>
+
+    @GET("NucleicAcidSite/QueryNucleicAcidSite")
+    fun appointQueryHeSuanArea(
+        @Query(SysNetConfig.site) site: String,
+        @Header(Auth) auth: String,
+    ): Call<BaseBean>
+
 
 }

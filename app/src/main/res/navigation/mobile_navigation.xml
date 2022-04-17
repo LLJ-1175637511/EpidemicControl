@@ -5,13 +5,11 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_manager">
 
-
-
-<!--    <fragment-->
-<!--        android:id="@+id/navigation_policy"-->
-<!--        android:name="com.lyc.epidemiccontrol.ui.fragment.PolicyFragment"-->
-<!--        android:label="@string/title_policy"-->
-<!--        tools:layout="@layout/fragment_policy" />-->
+    <fragment
+        android:id="@+id/navigation_policy"
+        android:name="com.lyc.epidemiccontrol.ui.fragment.PolicyFragment"
+        android:label="@string/title_policy"
+        tools:layout="@layout/fragment_policy" />
 
     <fragment
         android:id="@+id/navigation_diagnosis"

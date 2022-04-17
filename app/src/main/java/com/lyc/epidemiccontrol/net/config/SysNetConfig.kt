@@ -33,9 +33,13 @@ object SysNetConfig {
     const val AppintSite = "AppintSite"
     const val AppintType = "AppintType"
     const val image = "image"
+    const val site = "site"
+    const val BackHomeTime = "BackHomeTime"
 
     const val MULTIPART_TEXT = "text/plain"
     const val MULTIPART_FILE = "multipart/form-data"
+
+
 
     fun buildLoginMap(
         user: String,
@@ -98,7 +102,22 @@ object SysNetConfig {
         ).toString()
     }"
 
-    suspend fun reportBackHome(context: Context, uri: Uri): MultipartBody.Part {
+    /**
+     * 构造核查上传图片的文本PartMap
+     */
+    fun reportBackHomeText(
+        time: String
+    ): Map<String, RequestBody> {
+        val tmt = MediaType.parse(MULTIPART_TEXT)
+        val timeBody = RequestBody.create(tmt, time)
+        val userNumBody = RequestBody.create(tmt, getUserId())
+        return mapOf(
+            BackHomeTime to timeBody,
+            UserNum to userNumBody
+        )
+    }
+
+    suspend fun reportBackHomePhoto(context: Context, uri: Uri): MultipartBody.Part {
         val path = PhotoUtils.getFileAbsolutePath(context,uri)
         val faceFile = File(path)
 //        val faceFile = uri.toFile()

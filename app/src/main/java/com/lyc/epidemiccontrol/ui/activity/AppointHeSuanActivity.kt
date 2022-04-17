@@ -9,6 +9,7 @@ import com.lyc.epidemiccontrol.ext.isCodeSuc
 import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
+import com.lyc.epidemiccontrol.ui.dialog.AppointAreaDialog
 import com.lyc.epidemiccontrol.utils.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,10 +27,15 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
 
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "核酸预约"
+        mDataBinding.address.text = INIT_AREA
         mDataBinding.btDate.setOnClickListener {
             showDatePicker()
         }
         mDataBinding.tvAppoint.setOnClickListener {
+            if (mDataBinding.address.text.toString() == INIT_AREA){
+                ToastUtils.toastShort("请先选择预约地点")
+                return@setOnClickListener
+            }
             lifecycleScope.launch {
                 val b = SystemRepository.appointNewRequest(
                     SysNetConfig.buildAppointNewMap(
@@ -42,7 +48,6 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
                 )
                 if (b.code.isCodeSuc()) {
                     ECLib.getSP(Const.SPUser).save {
-                        putString(Const.SPAppointYiMiaoAddress,mDataBinding.address.text.toString())
                         putString(Const.SPUserIDCard,mDataBinding.idCard.text.toString())
                     }
                     LogUtils.d("Appiont", "suc")
@@ -58,9 +63,13 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
         ECLib.getUB()?.let {
             mDataBinding.phone.setText(it.telephone)
         }
-        mDataBinding.address.setText(ECLib.getSP(Const.SPUser).getString(Const.SPAppointYiMiaoAddress,""))
         mDataBinding.idCard.setText(ECLib.getSP(Const.SPUser).getString(Const.SPUserIDCard,""))
-
+        mDataBinding.address.setOnClickListener {
+            showDialog(
+                AppointAreaDialog(AppointAreaDialog.Companion.AppointType.HeSuan) {
+                    mDataBinding.address.text =  it
+                }, "AppointHeSuanArea")
+        }
     }
 
     private fun showDatePicker() {
@@ -77,4 +86,7 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
         dialog.show()
     }
 
+    companion object{
+        private const val INIT_AREA = "设置预约地点"
+    }
 }

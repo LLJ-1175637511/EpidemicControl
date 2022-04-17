@@ -6,8 +6,6 @@ object Const{
     const val SPUserPwd = "sp_user_pwd"
     const val SPUserID = "sp_user_id"
     const val SPUserIDCard = "sp_user_id_card"
-    const val SPAppointAddress = "sp_appoint_address"
-    const val SPAppointYiMiaoAddress = "sp_appoint_yi_miao_address"
 
     const val SPNet = "sp_net"
     const val SPNetToken = "sp_net_token"

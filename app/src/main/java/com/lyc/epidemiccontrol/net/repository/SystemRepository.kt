@@ -26,6 +26,9 @@ object SystemRepository {
 
     suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, RequestBody>) = SystemNetWork.reportPhoto(photo,map)
 
+    suspend fun getYiMiaoArea(site:String) = SystemNetWork.getYiMiaoArea(site)
+
+    suspend fun getHeSuanArea(site:String) = SystemNetWork.getHeSuanArea(site)
 
 
 }
