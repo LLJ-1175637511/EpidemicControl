@@ -10,7 +10,9 @@
     <color name="colorPrimaryDark">#FF9800</color>
     <color name="colorAccent">#FF9800</color>
 
+    <color name="orange_low">#F1AA43</color>
     <color name="qq_blue">#00acff</color>
+    <color name="qq_blue_low">#47B7ED</color>
     <color name="common_bg">#F8F5F5</color>
     <color name="blue_low">#BAC5DCE6</color>
     <color name="red_low">#BAECD4D7</color>

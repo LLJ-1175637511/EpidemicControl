@@ -3,7 +3,6 @@ package com.lyc.epidemiccontrol.net.server
 import com.lyc.epidemiccontrol.net.BaseBean
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 

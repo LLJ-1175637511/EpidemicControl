@@ -3,15 +3,12 @@ package com.lyc.epidemiccontrol.net.config
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.core.net.toFile
 import com.lyc.epidemiccontrol.utils.Const
 import com.lyc.epidemiccontrol.utils.ECLib
-import com.lyc.epidemiccontrol.utils.LogUtils
 import com.lyc.epidemiccontrol.utils.PhotoUtils
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.format
 import id.zelory.compressor.constraint.quality
-import id.zelory.compressor.constraint.resolution
 import id.zelory.compressor.constraint.size
 import okhttp3.MediaType
 import okhttp3.MultipartBody

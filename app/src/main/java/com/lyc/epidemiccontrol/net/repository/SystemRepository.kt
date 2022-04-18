@@ -2,7 +2,6 @@ package com.lyc.epidemiccontrol.net.repository
 
 import com.lyc.epidemiccontrol.net.network.SystemNetWork
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 
 object SystemRepository {
 

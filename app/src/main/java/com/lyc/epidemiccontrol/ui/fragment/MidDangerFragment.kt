@@ -1,12 +1,10 @@
 package com.lyc.epidemiccontrol.ui.fragment
 
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.data.vm.DiagnosisVM
 import com.lyc.epidemiccontrol.databinding.FragmentMidDangerBinding
 import com.lyc.epidemiccontrol.ui.adapter.DangerAreaRV
-import com.lyc.epidemiccontrol.utils.LogUtils
 import com.lyc.epidemiccontrol.utils.ToastUtils
 
 class MidDangerFragment : BaseFragment<FragmentMidDangerBinding>() {

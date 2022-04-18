@@ -6,26 +6,27 @@
 
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:orientation="vertical"
         android:background="@color/common_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView8"
-            android:gravity="center"
+            android:id="@+id/tvPolicy"
+            android:layout_gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="5dp"
+            android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/grey"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="出行政策" />
 
         <ListView
-            android:id="@+id/lvScience"
+            android:id="@+id/lvPolicy"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginTop="5dp"
@@ -33,17 +34,18 @@
             android:background="@drawable/shape_rect_white_low"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="0"/>
 
         <TextView
-            android:id="@+id/textView9"
-            android:gravity="center"
+            android:id="@+id/tvScience"
+            android:layout_gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="5dp"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:drawableEnd="@drawable/ic_baseline_arrow_drop_up_24"
             android:textColor="@color/grey"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="防疫小知识" />
 
@@ -58,5 +60,5 @@
             android:layout_height="0dp" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 </layout>

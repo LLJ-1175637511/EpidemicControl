@@ -14,11 +14,13 @@ import com.bumptech.glide.Glide
 import com.lyc.epidemiccontrol.R
 import com.lyc.epidemiccontrol.databinding.ActivityBackHomeBinding
 import com.lyc.epidemiccontrol.databinding.DialogAppointDateBinding
-import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.NetActivity
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
-import com.lyc.epidemiccontrol.utils.*
+import com.lyc.epidemiccontrol.utils.TimeEnum
+import com.lyc.epidemiccontrol.utils.ToastUtils
+import com.lyc.epidemiccontrol.utils.addZero
+import com.lyc.epidemiccontrol.utils.convertLongTime
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
