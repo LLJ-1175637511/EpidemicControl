@@ -27,25 +27,25 @@ class AppointAreaDialog(private val type: AppointType, private val block: (area:
             lifecycleScope.launch {
                 val requestData = when(type){
                     AppointType.YiMiao -> {
-                        fastRequest<List<AppointChooseAreaBean>> {
+                        fastRequest<AppointChooseAreaBean> {
                             SystemRepository.getYiMiaoArea(area)
                         }
                     }
                     AppointType.HeSuan -> {
-                        fastRequest<List<AppointChooseAreaBean>> {
+                        fastRequest<AppointChooseAreaBean> {
                             SystemRepository.getHeSuanArea(area)
                         }
                     }
                     else-> null
-                }
+                }?.pageData
                 requestData?.let {
                     if (it.isEmpty()) {
                         ToastUtils.toastShort("当前城市未查询到可用地点")
                         return@launch
                     }
                     list.clear()
-                    it.forEach {
-                        list.add(it.site)
+                    it.forEach { s ->
+                        list.add(s.site)
                     }
                     val adapter = ArrayAdapter<String>(
                         requireContext(),

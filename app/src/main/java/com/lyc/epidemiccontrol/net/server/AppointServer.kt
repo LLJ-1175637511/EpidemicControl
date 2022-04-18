@@ -39,7 +39,7 @@ interface AppointServer {
     @POST("ComingHome/AddComingHomeInfo")
     fun reportPhoto(
         @Header(Auth) auth: String,
-        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @QueryMap map: Map<String, String>,
         @Part photo: MultipartBody.Part
     ): Call<BaseBean>
 

@@ -34,7 +34,7 @@ object SystemNetWork {
     suspend fun appointQueryYiMiao() =
         appointServer.appointQueryYiMiao(SysNetConfig.getUserId(), SysNetConfig.getAuth()).await()
 
-    suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, RequestBody>,) =
+    suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, String>) =
         appointServer.reportPhoto(SysNetConfig.getAuth(),map,photo).await()
 
     suspend fun getCases() = casesServer.getCases(SysNetConfig.getAuth()).await()

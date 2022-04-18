@@ -24,7 +24,7 @@ object SystemRepository {
 
     suspend fun getMidDangerArea() = SystemNetWork.getMidDangerArea()
 
-    suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, RequestBody>) = SystemNetWork.reportPhoto(photo,map)
+    suspend fun reportPhoto(photo: MultipartBody.Part, map: Map<String, String>) = SystemNetWork.reportPhoto(photo,map)
 
     suspend fun getYiMiaoArea(site:String) = SystemNetWork.getYiMiaoArea(site)
 

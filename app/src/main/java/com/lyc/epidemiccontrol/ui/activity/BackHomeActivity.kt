@@ -18,9 +18,7 @@ import com.lyc.epidemiccontrol.ext.save
 import com.lyc.epidemiccontrol.net.NetActivity
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.repository.SystemRepository
-import com.lyc.epidemiccontrol.utils.Const
-import com.lyc.epidemiccontrol.utils.ECLib
-import com.lyc.epidemiccontrol.utils.ToastUtils
+import com.lyc.epidemiccontrol.utils.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -62,10 +60,8 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
         mDataBinding.btSelectPhoto.setOnClickListener {
             reportPhoto()
         }
-        val sp = ECLib.getSP(Const.SPPhoto)
-        if (sp.contains(Const.SPPhotoBackHome)){
-            val u = sp.getString(Const.SPPhotoBackHome,"")
-            Glide.with(this).load(u).into(mDataBinding.ivPhoto)
+        mDataBinding.time.setOnClickListener {
+            showDatePicker()
         }
     }
 
@@ -76,20 +72,17 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
             return
         }
         val time = mDataBinding.time.text.toString()
-        if (time == INIT_TIME){
+        if (time == INIT_TIME) {
             ToastUtils.toastShort("未选择返乡时间")
             return
         }
         lifecycleScope.launch {
             fastRequest<String> {
                 SystemRepository.reportPhoto(
-                    SysNetConfig.reportBackHomePhoto(this@BackHomeActivity,u),
+                    SysNetConfig.reportBackHomePhoto(this@BackHomeActivity, u),
                     SysNetConfig.reportBackHomeText(time)
                 )
             }?.let {
-                ECLib.getSP(Const.SPPhoto).save {
-                    putString(Const.SPPhotoBackHome,"http://39.105.114.212:8080${it}")
-                }
                 ToastUtils.toastShort("上传成功")
                 delay(1000)
                 finish()
@@ -122,14 +115,19 @@ class BackHomeActivity : NetActivity<ActivityBackHomeBinding>() {
             .create()
         dialog.setCancelable(false)
         binding.btSure.setOnClickListener {
-            mDataBinding.time.text =
-                "${binding.datePicker.year}年${binding.datePicker.month}月${binding.datePicker.dayOfMonth}"
+            val t =
+                "${binding.datePicker.year}-${(binding.datePicker.month + 1).addZero()}-${binding.datePicker.dayOfMonth}"
+            mDataBinding.time.text = t
+            if (t.convertLongTime(TimeEnum.YYbMMbDD) < System.currentTimeMillis() - 1000 * 60 * 60 * 24) {
+                ToastUtils.toastShort("请选择未来的时间")
+                return@setOnClickListener
+            }
             dialog.cancel()
         }
         dialog.show()
     }
 
-    companion object{
+    companion object {
         private const val INIT_TIME = "设置预约时间"
     }
 }

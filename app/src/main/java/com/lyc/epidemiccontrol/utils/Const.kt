@@ -9,7 +9,4 @@ object Const{
 
     const val SPNet = "sp_net"
     const val SPNetToken = "sp_net_token"
-
-    const val SPPhoto = "sp_photo"
-    const val SPPhotoBackHome = "sp_photo_back_home"
 }

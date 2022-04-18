@@ -40,7 +40,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         }
         mDataBinding.tvAppoint.setOnClickListener {
             lifecycleScope.launch {
-                if (mDataBinding.address.text.toString() == INIT_AREA){
+                if (mDataBinding.address.text.toString() == INIT_AREA) {
                     ToastUtils.toastShort("请先选择预约地点")
                     return@launch
                 }
@@ -77,8 +77,9 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         mDataBinding.address.setOnClickListener {
             showDialog(
                 AppointAreaDialog(AppointAreaDialog.Companion.AppointType.YiMiao) {
-                mDataBinding.address.text =  it
-            }, "AppointYiMiaoArea")
+                    mDataBinding.address.text = it
+                }, "AppointYiMiaoArea"
+            )
         }
     }
 
@@ -90,13 +91,13 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         dialog.setCancelable(false)
         binding.btSure.setOnClickListener {
             date =
-                "${binding.datePicker.year}年${binding.datePicker.month}月${binding.datePicker.dayOfMonth}"
+                "${binding.datePicker.year}年${(binding.datePicker.month + 1).addZero()}月${binding.datePicker.dayOfMonth}日"
             dialog.cancel()
         }
         dialog.show()
     }
 
-    companion object{
+    companion object {
         private const val INIT_AREA = "设置预约地点"
     }
 }

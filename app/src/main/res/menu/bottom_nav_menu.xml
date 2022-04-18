@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_manager" />
 
-    <!--    <item-->
-    <!--        android:id="@+id/navigation_policy"-->
-    <!--        android:icon="@drawable/ic_dashboard_black_24dp"-->
-    <!--        android:title="@string/title_policy" />-->
+        <item
+            android:id="@+id/navigation_policy"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="@string/title_policy" />
 
     <item
         android:id="@+id/navigation_user"

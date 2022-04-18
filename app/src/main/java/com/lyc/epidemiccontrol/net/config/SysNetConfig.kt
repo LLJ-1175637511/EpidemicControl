@@ -32,13 +32,12 @@ object SysNetConfig {
     const val AppintDate = "AppintDate"
     const val AppintSite = "AppintSite"
     const val AppintType = "AppintType"
-    const val image = "image"
+    const val HealthProve = "HealthProve"
     const val site = "site"
     const val BackHomeTime = "BackHomeTime"
 
     const val MULTIPART_TEXT = "text/plain"
     const val MULTIPART_FILE = "multipart/form-data"
-
 
 
     fun buildLoginMap(
@@ -69,7 +68,7 @@ object SysNetConfig {
         telephone: String,
         appintDate: String,
         appintSite: String,
-        identityNum : String
+        identityNum: String
     ) = mapOf(
         UserNum to getUserId(),
         CreatDate to creatDate,
@@ -84,7 +83,7 @@ object SysNetConfig {
         telephone: String,
         appintDate: String,
         appintSite: String,
-        identityNum : String
+        identityNum: String
     ) = mapOf(
         UserNum to getUserId(),
         Telephone to telephone,
@@ -94,7 +93,7 @@ object SysNetConfig {
         AppintType to appintType
     )
 
-    fun getUserId() = ECLib.getSP(Const.SPUser).getString(Const.SPUserID,"").toString()
+    fun getUserId() = ECLib.getSP(Const.SPUser).getString(Const.SPUserID, "").toString()
 
     fun getAuth() = "Bearer ${
         ECLib.getSP(Const.SPNet).getString(
@@ -107,20 +106,15 @@ object SysNetConfig {
      */
     fun reportBackHomeText(
         time: String
-    ): Map<String, RequestBody> {
-        val tmt = MediaType.parse(MULTIPART_TEXT)
-        val timeBody = RequestBody.create(tmt, time)
-        val userNumBody = RequestBody.create(tmt, getUserId())
-        return mapOf(
-            BackHomeTime to timeBody,
-            UserNum to userNumBody
-        )
-    }
+    ): Map<String, String> = mapOf(
+        BackHomeTime to time,
+        UserNum to getUserId()
+    )
 
     suspend fun reportBackHomePhoto(context: Context, uri: Uri): MultipartBody.Part {
-        val path = PhotoUtils.getFileAbsolutePath(context,uri)
+        val path = PhotoUtils.getFileAbsolutePath(context, uri)
         val faceFile = File(path)
-//        val faceFile = uri.toFile()
+
         if (!faceFile.exists()) throw Exception("图片缺失")
 
         val compressedImageFile = Compressor.compress(context, faceFile) {
@@ -133,7 +127,7 @@ object SysNetConfig {
 
         val faceRequest = RequestBody.create(fmt, compressedImageFile)
         //注意字段名
-        return MultipartBody.Part.createFormData(image, compressedImageFile.name, faceRequest)
+        return MultipartBody.Part.createFormData(HealthProve, compressedImageFile.name, faceRequest)
     }
 
 

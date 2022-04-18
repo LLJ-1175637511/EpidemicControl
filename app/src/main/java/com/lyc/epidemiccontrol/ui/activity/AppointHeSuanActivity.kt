@@ -32,7 +32,7 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
             showDatePicker()
         }
         mDataBinding.tvAppoint.setOnClickListener {
-            if (mDataBinding.address.text.toString() == INIT_AREA){
+            if (mDataBinding.address.text.toString() == INIT_AREA) {
                 ToastUtils.toastShort("请先选择预约地点")
                 return@setOnClickListener
             }
@@ -48,7 +48,7 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
                 )
                 if (b.code.isCodeSuc()) {
                     ECLib.getSP(Const.SPUser).save {
-                        putString(Const.SPUserIDCard,mDataBinding.idCard.text.toString())
+                        putString(Const.SPUserIDCard, mDataBinding.idCard.text.toString())
                     }
                     LogUtils.d("Appiont", "suc")
                     ToastUtils.toastShort("预约成功")
@@ -63,12 +63,13 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
         ECLib.getUB()?.let {
             mDataBinding.phone.setText(it.telephone)
         }
-        mDataBinding.idCard.setText(ECLib.getSP(Const.SPUser).getString(Const.SPUserIDCard,""))
+        mDataBinding.idCard.setText(ECLib.getSP(Const.SPUser).getString(Const.SPUserIDCard, ""))
         mDataBinding.address.setOnClickListener {
             showDialog(
                 AppointAreaDialog(AppointAreaDialog.Companion.AppointType.HeSuan) {
-                    mDataBinding.address.text =  it
-                }, "AppointHeSuanArea")
+                    mDataBinding.address.text = it
+                }, "AppointHeSuanArea"
+            )
         }
     }
 
@@ -80,13 +81,13 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
         dialog.setCancelable(false)
         binding.btSure.setOnClickListener {
             date =
-                "${binding.datePicker.year}年${binding.datePicker.month}月${binding.datePicker.dayOfMonth}"
+                "${binding.datePicker.year}年${(binding.datePicker.month + 1).addZero()}月${binding.datePicker.dayOfMonth}日"
             dialog.cancel()
         }
         dialog.show()
     }
 
-    companion object{
+    companion object {
         private const val INIT_AREA = "设置预约地点"
     }
 }

@@ -42,4 +42,27 @@ fun Long.convertTime(timeEnum: TimeEnum): String {
 格林尼治时间转换
  */
 @SuppressLint("SimpleDateFormat")
-fun String.convertGeLinTime():String = this.substring(0..9)
+fun String.convertGeLinTime(): String = this.substring(0..9)
+
+fun String.convertLongTime(timeEnum: TimeEnum): Long {
+    val type = when (timeEnum) {
+        TimeEnum.YYMMDD -> {
+            "yyyyMMdd"
+        }
+        TimeEnum.Y年M月D日 -> {
+            "yyyy年MM月dd日"
+        }
+        TimeEnum.YYbMMbDD -> {
+            "yyyy-MM-dd"
+        }
+        TimeEnum.YYbMMbDDHHvMMvSS -> {
+            "yyyy-MM-dd hh-mm-ss"
+        }
+        TimeEnum.THIS -> {
+            "yyyy-MM-dd hh:mm:ss"
+        }
+    }
+    return SimpleDateFormat(type).parse(this).time
+}
+
+fun Int.addZero(): String = if (this < 10) "0$this" else this.toString()
