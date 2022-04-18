@@ -4,9 +4,9 @@ import com.lyc.epidemiccontrol.net.RetrofitCreator
 import com.lyc.epidemiccontrol.net.config.SysNetConfig
 import com.lyc.epidemiccontrol.net.server.AppointServer
 import com.lyc.epidemiccontrol.net.server.CasesServer
+import com.lyc.epidemiccontrol.net.server.PolicyAndScienceServer
 import com.lyc.epidemiccontrol.net.server.UserServer
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.await
 
 object SystemNetWork {
@@ -17,6 +17,7 @@ object SystemNetWork {
 
     private val casesServer by lazy { RetrofitCreator.create<CasesServer>() }
 
+    private val policyAndScienceServer by lazy { RetrofitCreator.create<PolicyAndScienceServer>() }
 
     suspend fun login(map: Map<String, String>) = userServer.login(map).await()
 
@@ -47,5 +48,8 @@ object SystemNetWork {
 
     suspend fun getHeSuanArea(site:String) = appointServer.appointQueryHeSuanArea(site,SysNetConfig.getAuth()).await()
 
+    suspend fun getScienceInfo() = policyAndScienceServer.getScienceInfo(SysNetConfig.getAuth()).await()
+
+    suspend fun getTopPolicy() = policyAndScienceServer.getTopPolicy(SysNetConfig.getAuth()).await()
 
 }

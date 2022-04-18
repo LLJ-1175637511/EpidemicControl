@@ -30,5 +30,9 @@ object SystemRepository {
 
     suspend fun getHeSuanArea(site:String) = SystemNetWork.getHeSuanArea(site)
 
+    suspend fun getTopPolicy() = SystemNetWork.getTopPolicy()
+
+    suspend fun getScienceInfo() = SystemNetWork.getScienceInfo()
+
 
 }

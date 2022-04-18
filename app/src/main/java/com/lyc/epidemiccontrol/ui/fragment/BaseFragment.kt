@@ -59,4 +59,6 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
             InputMethodManager.HIDE_NOT_ALWAYS
         )
     }
+
+
 }

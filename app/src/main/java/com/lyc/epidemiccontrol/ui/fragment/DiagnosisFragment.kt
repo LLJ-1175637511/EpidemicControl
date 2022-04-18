@@ -33,6 +33,7 @@ class DiagnosisFragment : NetFragment<FragmentDiagnosisBinding>() {
     }
 
     private fun initMainView() {
+        mDataBinding.toolbar.toolbarBaseTitle.text = "高中风险地区"
         vm.casesBean.observe(viewLifecycleOwner) { ccb ->
             ccb?.let {
                 mDataBinding.diagnosis = it
