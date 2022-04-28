@@ -1,5 +1,6 @@
 package com.lyc.epidemiccontrol.ui.activity
 
+import android.text.InputType
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.lyc.epidemiccontrol.R
@@ -27,7 +28,10 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
 
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "核酸预约"
-        mDataBinding.address.text = INIT_AREA
+        mDataBinding.address.setText(INIT_AREA)
+        mDataBinding.address.inputType = InputType.TYPE_NULL
+        mDataBinding.btDate.setText(date)
+        mDataBinding.btDate.inputType = InputType.TYPE_NULL
         mDataBinding.btDate.setOnClickListener {
             showDatePicker()
         }
@@ -67,7 +71,7 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
         mDataBinding.address.setOnClickListener {
             showDialog(
                 AppointAreaDialog(AppointAreaDialog.Companion.AppointType.HeSuan) {
-                    mDataBinding.address.text = it
+                    mDataBinding.address.setText(it)
                 }, "AppointHeSuanArea"
             )
         }
@@ -81,7 +85,7 @@ class AppointHeSuanActivity : BaseActivity<ActivityAppointHesuanBinding>() {
         dialog.setCancelable(false)
         binding.btSure.setOnClickListener {
             date =
-                "${binding.datePicker.year}年${(binding.datePicker.month + 1).addZero()}月${binding.datePicker.dayOfMonth}日"
+                "${binding.datePicker.year}-${(binding.datePicker.month + 1).addZero()}-${binding.datePicker.dayOfMonth}"
             dialog.cancel()
         }
         dialog.show()

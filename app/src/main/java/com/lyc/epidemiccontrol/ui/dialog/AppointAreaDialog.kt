@@ -24,43 +24,48 @@ class AppointAreaDialog(private val type: AppointType, private val block: (area:
         }
         mDataBinding.tvFilter.setOnClickListener {
             val area = mDataBinding.etFilterContent.text.trim().toString()
-            lifecycleScope.launch {
-                val requestData = when(type){
-                    AppointType.YiMiao -> {
-                        fastRequest<AppointChooseAreaBean> {
-                            SystemRepository.getYiMiaoArea(area)
-                        }
-                    }
-                    AppointType.HeSuan -> {
-                        fastRequest<AppointChooseAreaBean> {
-                            SystemRepository.getHeSuanArea(area)
-                        }
-                    }
-                    else-> null
-                }?.pageData
-                requestData?.let {
-                    if (it.isEmpty()) {
-                        ToastUtils.toastShort("当前城市未查询到可用地点")
-                        return@launch
-                    }
-                    list.clear()
-                    it.forEach { s ->
-                        list.add(s.site)
-                    }
-                    val adapter = ArrayAdapter<String>(
-                        requireContext(),
-                        android.R.layout.simple_list_item_1,
-                        list
-                    )
-                    mDataBinding.listView.adapter = adapter
-                }
-
-            }
+            queryData(area)
         }
         mDataBinding.listView.setOnItemClickListener { adapterView, view, position, id ->
             val area = list[position]
             block(area)
             destroyDialog()
+        }
+        queryData("")
+    }
+
+    private fun queryData(area:String){
+        lifecycleScope.launch {
+            val requestData = when(type){
+                AppointType.YiMiao -> {
+                    fastRequest<AppointChooseAreaBean> {
+                        SystemRepository.getYiMiaoArea(area)
+                    }
+                }
+                AppointType.HeSuan -> {
+                    fastRequest<AppointChooseAreaBean> {
+                        SystemRepository.getHeSuanArea(area)
+                    }
+                }
+                else-> null
+            }?.pageData
+            requestData?.let {
+                if (it.isEmpty()) {
+                    ToastUtils.toastShort("当前城市未查询到可用地点")
+                    return@launch
+                }
+                list.clear()
+                it.forEach { s ->
+                    list.add(s.site)
+                }
+                val adapter = ArrayAdapter<String>(
+                    requireContext(),
+                    android.R.layout.simple_list_item_1,
+                    list
+                )
+                mDataBinding.listView.adapter = adapter
+            }
+
         }
     }
 

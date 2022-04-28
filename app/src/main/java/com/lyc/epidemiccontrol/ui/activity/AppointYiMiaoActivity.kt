@@ -29,7 +29,8 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
 
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "疫苗预约"
-        mDataBinding.address.text = INIT_AREA
+        mDataBinding.address.setText(INIT_AREA)
+        mDataBinding.btDate.setText(System.currentTimeMillis().convertTime(TimeEnum.Y年M月D日))
         ECLib.getUB()?.let {
             mDataBinding.phone.setText(it.telephone)
         }
@@ -77,7 +78,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         mDataBinding.address.setOnClickListener {
             showDialog(
                 AppointAreaDialog(AppointAreaDialog.Companion.AppointType.YiMiao) {
-                    mDataBinding.address.text = it
+                    mDataBinding.address.setText(it)
                 }, "AppointYiMiaoArea"
             )
         }
@@ -91,7 +92,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         dialog.setCancelable(false)
         binding.btSure.setOnClickListener {
             date =
-                "${binding.datePicker.year}年${(binding.datePicker.month + 1).addZero()}月${binding.datePicker.dayOfMonth}日"
+                "${binding.datePicker.year}-${(binding.datePicker.month + 1).addZero()}-${binding.datePicker.dayOfMonth}"
             dialog.cancel()
         }
         dialog.show()
