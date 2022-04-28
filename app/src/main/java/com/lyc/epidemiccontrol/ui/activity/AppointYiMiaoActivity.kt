@@ -30,7 +30,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
     private fun initMainView() {
         mDataBinding.toolbar.toolbarBaseTitle.text = "疫苗预约"
         mDataBinding.address.setText(INIT_AREA)
-        mDataBinding.btDate.setText(System.currentTimeMillis().convertTime(TimeEnum.Y年M月D日))
+        mDataBinding.btDate.setText(date)
         ECLib.getUB()?.let {
             mDataBinding.phone.setText(it.telephone)
         }
@@ -93,6 +93,7 @@ class AppointYiMiaoActivity : BaseActivity<ActivityAppointYimiaoBinding>() {
         binding.btSure.setOnClickListener {
             date =
                 "${binding.datePicker.year}-${(binding.datePicker.month + 1).addZero()}-${binding.datePicker.dayOfMonth}"
+            mDataBinding.btDate.setText(date)
             dialog.cancel()
         }
         dialog.show()
