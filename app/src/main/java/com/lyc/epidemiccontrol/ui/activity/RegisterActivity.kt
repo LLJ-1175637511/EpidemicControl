@@ -26,7 +26,7 @@ class RegisterActivity:BaseActivity<ActivityRegisterBinding>() {
         mDataBinding.tvRegister.setOnClickListener {
             kotlin.runCatching {
                 val username = mDataBinding.username.text.toString()
-                if (username.isEmpty()) toastErr(mDataBinding.address.hint.toString())
+                if (username.isEmpty()) toastErr(mDataBinding.username.hint.toString())
 
                 val userNumber = mDataBinding.userNumber.text.toString()
                 if (userNumber.isEmpty()) toastErr(mDataBinding.userNumber.hint.toString())
